@@ -3,8 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use app\models\Managertbl;
-use backend\models\ManagertblSearch;
+use common\models\Managertbl;
+use common\models\ManagerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -33,8 +33,7 @@ class ManagerController extends Controller {
      * @return mixed
      */
     public function actionIndex() {
-        //$this->layout = 'layout1';
-        $searchModel = new ManagertblSearch();
+        $searchModel = new ManagerSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
